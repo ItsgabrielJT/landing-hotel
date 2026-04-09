@@ -140,6 +140,80 @@ const palette = [
   { name: 'Verde oceano', hex: '#2E6F68', use: 'Estados de exito, seguridad y estabilidad operativa.' },
 ]
 
+const hotelProblems = [
+  {
+    number: '01',
+    title: 'Overbooking y falta de reservas',
+    stat: '$50K+',
+    statLabel: 'en compensaciones por establecimiento',
+    detail: 'Reubicar un huésped cuesta 2–3× la tarifa normal. Una habitación vacía en temporada alta supone $100–$300 de coste de oportunidad.',
+  },
+  {
+    number: '02',
+    title: 'Inventario inexacto en tiempo real',
+    stat: '−15%',
+    statLabel: 'de ingresos por paridad de tarifas rota',
+    detail: 'Las reservas dobles y los precios desincronizados entre canales generan caos en recepción y pérdida de hasta el 15% de ingresos.',
+  },
+  {
+    number: '03',
+    title: 'Dependencia excesiva de OTAs',
+    stat: '25%',
+    statLabel: 'de comisión sobre cada reserva',
+    detail: 'Las agencias de viaje online se llevan entre el 15% y el 25% de cada reserva, erosionando el margen neto del hotel.',
+  },
+  {
+    number: '05',
+    title: 'Desperdicio en alimentos y bebidas',
+    stat: '$4K/mes',
+    statLabel: 'perdidos por deterioro de perecederos',
+    detail: 'Compras de emergencia con recargos del 200–300%. La escasez de ingredientes provoca una caída del 10–20% en ingresos de restaurante.',
+  },
+  {
+    number: '06',
+    title: 'Escasez de suministros de limpieza',
+    stat: '400%',
+    statLabel: 'de recargo en compras de último momento',
+    detail: 'Quedarse sin toallas o artículos de baño fuerza pedidos urgentes con recargos de hasta el 400% sobre el coste previsto.',
+  },
+  {
+    number: '07',
+    title: 'Integración tecnológica fallida',
+    stat: '25h/sem',
+    statLabel: 'consumidas en gestión manual de inventario',
+    detail: 'Sin automatización, el personal destina 15–25 horas semanales a apagar fuegos. Las horas extra asociadas cuestan $1.000–$3.000 al mes.',
+  },
+]
+
+const globalImpactStats = [
+  { value: '20%', label: 'de estancias afectadas por mala gestión' },
+  { value: '−9%', label: 'en reservas por −1 punto de satisfacción' },
+  { value: '$50K+', label: 'pérdidas anuales en hoteles medianos' },
+  { value: '6 cifras', label: 'de pérdida anual en establecimientos grandes' },
+]
+
+const solutionGains = [
+  { value: '+10%', label: 'RevPAR con gestión tecnológica eficaz' },
+  { value: '−25%', label: 'en costes laborales operativos' },
+  { value: '0', label: 'overbookings con bloqueo pesimista' },
+  { value: '< 500ms', label: 'latencia del motor de reservas' },
+]
+
+const solutionPillars = [
+  {
+    title: 'Inventario blindado en tiempo real',
+    text: 'Hold pesimista que bloquea la habitación en milisegundos y la libera automáticamente si el pago no se completa, eliminando reservas dobles de raíz.',
+  },
+  {
+    title: 'Canal directo sin intermediarios',
+    text: 'Motor de reservas propio que reduce la dependencia de OTAs, recupera el margen perdido y ofrece al hotel control total sobre precios y disponibilidad.',
+  },
+  {
+    title: 'Operación automatizada y trazable',
+    text: 'Dashboard centralizado, previsiones basadas en datos reales y flujos de trabajo que reducen el trabajo manual en más de 20 horas semanales.',
+  },
+]
+
 const faqItems = [
   {
     question: 'Que hace creible este MVP frente a un flujo hotelero real?',
@@ -432,6 +506,80 @@ function App() {
           </section>
 
           
+        </div>
+      </section>
+
+      {/* ─── SECCIÓN: PROBLEMA ─── */}
+      <section className="section section-dark problem-section">
+        <div className="section-heading">
+          <span className="eyebrow eyebrow-outline problem-eyebrow">EL DIAGNÓSTICO</span>
+          <h2 className="problem-headline">
+            La industria hotelera pierde millones cada año.<br />
+            <span className="headline-accent">Y la mayoría ni lo sabe.</span>
+          </h2>
+          <p className="support-copy support-copy-dark problem-lead">
+            Un estudio sobre la optimización del inventario hotelero identifica 7 problemas estructurales
+            que drenan ingresos, disparan costes y erosionan la satisfacción del huésped en hoteles de todos los tamaños.
+          </p>
+        </div>
+
+        <div className="problem-grid">
+          {hotelProblems.map((problem) => (
+            <article key={problem.number} className="problem-card">
+              <span className="problem-number">{problem.number}</span>
+              <h3 className="problem-title">{problem.title}</h3>
+              <div className="problem-stat-block">
+                <strong className="problem-stat">{problem.stat}</strong>
+                <span className="problem-stat-label">{problem.statLabel}</span>
+              </div>
+              <p className="problem-detail">{problem.detail}</p>
+            </article>
+          ))}
+        </div>
+
+        <div className="impact-bar">
+          {globalImpactStats.map((item) => (
+            <article key={item.label} className="impact-bar-item">
+              <strong>{item.value}</strong>
+              <span>{item.label}</span>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      {/* ─── SECCIÓN: SOLUCIÓN ─── */}
+      <section className="section solution-section">
+        <div className="section-heading section-heading-inline">
+          <div>
+            <span className="eyebrow solution-eyebrow">LA OPORTUNIDAD</span>
+            <h2>El mercado está listo.<br />La tecnología, también.</h2>
+          </div>
+          <p className="support-copy solution-lead">
+            Cada uno de esos 7 problemas tiene solución. La clave no es gastar más, sino operar
+            con un motor inteligente que blinde el inventario, automatice los flujos y devuelva
+            el control al hotel. Con tecnología probada, los beneficios son inmediatos y medibles.
+          </p>
+        </div>
+
+        <div className="solution-gains-grid">
+          {solutionGains.map((gain) => (
+            <article key={gain.label} className="gain-card">
+              <strong className="gain-value">{gain.value}</strong>
+              <span className="gain-label">{gain.label}</span>
+            </article>
+          ))}
+        </div>
+
+        <div className="solution-pillars">
+          {solutionPillars.map((pillar, index) => (
+            <article key={pillar.title} className="solution-pillar">
+              <span className="pillar-index">0{index + 1}</span>
+              <div>
+                <h3>{pillar.title}</h3>
+                <p>{pillar.text}</p>
+              </div>
+            </article>
+          ))}
         </div>
       </section>
 
