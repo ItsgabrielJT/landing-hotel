@@ -179,7 +179,7 @@
 .faq-item button,
 .ribbon-button,
 .ribbon-button-alt {
-    box-shadow 180ms ease,
+    transition: box-shadow 180ms ease,
     border-color 180ms ease,
     background 180ms ease;
 }
