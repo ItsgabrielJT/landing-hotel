@@ -109,7 +109,7 @@
 .site-footer {
   border: 1px solid var(--border-soft);
   border-radius: 28px;
-  backdrop-filter: blur(18px);
+  /* Se eliminó backdrop-filter: blur(18px) porque sobre áreas enormes destruye el frame rate del scroll */
 }
 
 .hero-copy {

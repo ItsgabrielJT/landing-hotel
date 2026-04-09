@@ -34,11 +34,12 @@ html {
 body {
   margin: 0;
   min-width: 320px;
+  position: relative;
 }
 
 body::before {
   content: '';
-  position: fixed;
+  position: absolute;
   inset: 0;
   z-index: -1;
   pointer-events: none;
@@ -48,8 +49,6 @@ body::before {
   background-size: 72px 72px;
   mask-image: radial-gradient(circle at center, black 35%, transparent 82%);
   -webkit-mask-image: radial-gradient(circle at center, black 35%, transparent 82%);
-  transform: translateZ(0);
-  will-change: transform;
 }
 
 a,
