@@ -265,24 +265,25 @@ function App() {
       <section className="hero-section" id="solucion">
 
         
+        
         <div className="hero-copy">
           <div className="eyebrow-group">
-            <span className="eyebrow">EL FUTURO DE LA TECNOLOGÍA HOTELERA</span>
+            <span className="eyebrow">Motor B2B Validado</span>
           </div>
-          <h1>Motor de Reservas de Hotel.<br/>Inventario Garantizado.</h1>
+          <h1>Hotel Travel: Motor de reservas.</h1>
           <p className="hero-lead">
-            Un motor de reservas de alta concurrencia para hoteles de lujo que elimina el overbooking
-            mediante el bloqueo pesimista de inventario. Ingeniería para la confianza arquitectónica.
+            Elimine el overbooking con bloqueo pesimista en milisegundos. Nuestro sistema retiene el inventario al instante e implementa idempotencia de pagos, salvaguardando tarifas premium y evitando reclamos en operaciones de alta exigencia.
           </p>
           <div className="hero-actions">
             <a className="button button-primary" href="#tecnologia">
-              Ver Stack Tecnológico
+              Entender Tecnología
             </a>
-            <a className="button button-secondary" href="#hoja-de-ruta">
-              Hoja de Ruta
+            <a className="button button-secondary" href="#arquitectura">
+              Ver Arquitectura
             </a>
           </div>
         </div>
+
 
         <div className="hero-stage" id="demo">
           <section className="search-card">
@@ -475,21 +476,20 @@ function App() {
             <span className="eyebrow">Dashboard demo</span>
             <h2>Operacion visible para el hotel desde una sola vista realista</h2>
           </div>
-          <div className="panel-switcher" role="tablist" aria-label="Vistas del panel">
+          </div>
+        <div className="panel-switcher" role="tablist" aria-label="Vistas del panel" style={{ display: 'flex', gap: '0.8rem', background: 'rgba(255,255,255,0.6)', padding: '0.4rem', borderRadius: '100px', margin: '0 auto', maxWidth: 'fit-content' }}>
             {Object.entries(adminPanels).map(([key, panel]) => (
               <button
                 key={key}
                 type="button"
-                className={activePanel === key ? 'is-active' : ''}
+                className={`tab-button ${activePanel === key ? 'is-active' : ''}`}
                 onClick={() => setActivePanel(key)}
               >
                 {panel.title}
               </button>
             ))}
           </div>
-        </div>
-
-        <div className="admin-layout">
+        <div className="admin-layout" style={{ marginTop: '2rem' }}>
           <article className="admin-mockup">
             <div className="window-bar">
               <span />
