@@ -1,28 +1,6 @@
 import { useEffect, useState } from 'react'
 import './App.css'
 
-function useScrollReveal() {
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('is-revealed')
-          }
-        })
-      },
-      { threshold: 0.1, rootMargin: '0px 0px -50px 0px' }
-    )
-
-    const elements = document.querySelectorAll('.reveal-on-scroll')
-    elements.forEach((el) => observer.observe(el))
-
-    return () => {
-      elements.forEach((el) => observer.unobserve(el))
-    }
-  }, [])
-}
-
 const initialHoldSeconds = 10 * 60
 const rooms = [
   {
@@ -192,7 +170,6 @@ function formatCountdown(totalSeconds) {
 }
 
 function App() {
-  useScrollReveal()
   const [filters, setFilters] = useState({
     city: 'Cartagena',
     country: 'Colombia',
@@ -702,31 +679,6 @@ function App() {
         <strong>Travel: Motor de Reservas de Hotel</strong>
         <p>{new Date().getFullYear()} · El Motor de Reservas diseñado para eliminar el overbooking.</p>
       </footer>
-      <aside className={`hold-ribbon ${holdSeconds === 0 ? 'is-expired' : ''}`}>
-            <div className="hold-ribbon-icon" aria-hidden="true">
-              ⏱
-            </div>
-            <div className="hold-ribbon-copy">
-              <span className="hold-ribbon-label">Sesion de demo activa</span>
-              <strong>
-                {holdSeconds > 0 ? 'Inventario bloqueado' : 'Hold expirado'}: {formatCountdown(holdSeconds)}
-              </strong>
-              <small>{paymentLabels[paymentStatus]}</small>
-            </div>
-            <div className="hold-ribbon-progress" aria-hidden="true">
-              <div className="progress-track">
-                <div className="progress-fill" style={{ width: `${holdProgress}%` }} />
-              </div>
-            </div>
-            <div className="hold-ribbon-actions">
-              <button type="button" className="ribbon-button ribbon-button-alt" onClick={advancePaymentDemo}>
-                Simular pago
-              </button>
-              <button type="button" className="ribbon-button" onClick={resetHoldDemo}>
-                Reiniciar demo
-              </button>
-            </div>
-          </aside>
     </main>
   )
 }
