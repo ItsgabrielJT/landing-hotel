@@ -1,0 +1,91 @@
+:root {
+  --primary-900: #143642;
+  --primary-700: #255160;
+  --accent: #c96b3b;
+  --success: #2e6f68;
+  --sand: #f6f0e8;
+  --paper: #fffaf4;
+  --text: #1d2d35;
+  --muted: #61727a;
+  --border-soft: rgba(20, 54, 66, 0.1);
+  --shadow-soft: 0 18px 40px rgba(20, 54, 66, 0.1);
+  --shadow-strong: 0 28px 60px rgba(13, 31, 39, 0.28);
+  font-family: 'Avenir Next', 'Segoe UI', sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  color: var(--text);
+  background:
+    radial-gradient(circle at top left, rgba(201, 107, 59, 0.12), transparent 28%),
+    linear-gradient(180deg, #fbf7f1 0%, #f3ece2 100%);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(90deg, rgba(20, 54, 66, 0.03) 1px, transparent 1px),
+    linear-gradient(rgba(20, 54, 66, 0.03) 1px, transparent 1px);
+  background-size: 72px 72px;
+  mask-image: radial-gradient(circle at center, black 35%, transparent 82%);
+}
+
+a,
+button,
+input {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+#root {
+  min-height: 100svh;
+}
+
+h1,
+h2,
+h3,
+strong {
+  font-family: 'Avenir Next Condensed', 'Avenir Next', 'Trebuchet MS', sans-serif;
+  margin: 0;
+  letter-spacing: -0.03em;
+}
+
+h1 {
+  font-size: clamp(3rem, 7vw, 5.5rem);
+  line-height: 0.95;
+  margin: 1rem 0 1.2rem;
+}
+
+h2 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  line-height: 1;
+}
+
+h3 {
+  font-size: 1.35rem;
+}
+
+p {
+  margin: 0;
+}
