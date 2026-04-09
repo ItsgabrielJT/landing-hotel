@@ -275,7 +275,7 @@ function App() {
             Elimine el overbooking con bloqueo pesimista en milisegundos. Nuestro sistema retiene el inventario al instante e implementa idempotencia de pagos, salvaguardando tarifas premium y evitando reclamos en operaciones de alta exigencia.
           </p>
           <div className="hero-actions">
-            <a className="button button-primary" href="#tecnologia">
+            <a className="button button-primary" href="#demo">
               Entender Tecnología
             </a>
             <a className="button button-secondary" href="#arquitectura">
@@ -408,10 +408,10 @@ function App() {
         <div className="section-heading section-heading-inline">
           <div>
             <span className="eyebrow">Checkout demo</span>
-            <h2>Una pantalla de pago que ya parece producto y no wireframe</h2>
+            <h2>Checkout de alta conversión con reserva garantizada</h2>
           </div>
           <p className="support-copy">
-            Inspirada en la referencia generada en Stitch: formulario elegante, resumen claro y una barra de hold horizontal anclada al borde inferior.
+            Diseñado para transmitir urgencia sutil con un hold visible de 10 minutos que protege la habitación mientras el usuario realiza el pago con total tranquilidad.
           </p>
         </div>
 
@@ -549,16 +549,16 @@ function App() {
 
           <aside className="admin-notes">
             <article>
-              <strong>Top 5 habitaciones</strong>
-              <p>La landing explica el valor comercial con datos que un administrador entiende de inmediato.</p>
+              <strong>Visibilidad Operativa Centralizada</strong>
+              <p>Métricas en tiempo real, desde ocupación hasta ventas realizadas, para una gestión eficiente impulsada por datos tangibles.</p>
             </article>
             <article>
-              <strong>Verificacion por QR</strong>
-              <p>El cierre en check-in fisico se vuelve simple, verificable y menos dependiente del staff.</p>
+              <strong>Validación Rápida por QR</strong>
+              <p>Check-in sin fricciones. Permite a los administradores reducir tiempos de espera validando estancias de forma segura en segundos.</p>
             </article>
             <article>
-              <strong>Terminacion manual con trazabilidad</strong>
-              <p>El flujo considera estados finales, auditoria y una operacion irreversible bien controlada.</p>
+              <strong>Flujos Libres de Conflictos</strong>
+              <p>Auditoría completa y recuperación automática del inventario tras finalización o abandono del hold.</p>
             </article>
           </aside>
         </div>
@@ -677,7 +677,7 @@ function App() {
 
       <footer className="site-footer">
         <strong>Travel: Motor de Reservas de Hotel</strong>
-        <p>{new Date().getFullYear()} · Landing comercial en espanol inspirada en el PRD del MVP.</p>
+        <p>{new Date().getFullYear()} · El Motor de Reservas diseñado para eliminar el overbooking.</p>
       </footer>
       <aside className={`hold-ribbon ${holdSeconds === 0 ? 'is-expired' : ''}`}>
             <div className="hold-ribbon-icon" aria-hidden="true">
