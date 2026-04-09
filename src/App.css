@@ -11,15 +11,12 @@
   justify-content: space-between;
   align-items: center;
   padding: 1.25rem 4rem;
-  background: rgba(255, 250, 244, 0.75);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+  background: rgba(255, 250, 244, 0.95);
   border-bottom: 1px solid rgba(20, 54, 66, 0.08);
   width: 100%;
   margin: 0;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
-  transform: translateZ(0);
-  will-change: transform, backdrop-filter;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.02);
+  transform: translate3d(0,0,0);
 }
 
 .header-logo {
@@ -431,7 +428,7 @@ input:focus {
   position: fixed;
   bottom: 0.5rem;
   left: 50%;
-  transform: translateX(-50%) translateZ(0);
+  transform: translateX(-50%) translate3d(0,0,0);
   z-index: 90;
   display: grid;
   grid-template-columns: auto 1fr auto;
@@ -441,13 +438,10 @@ input:focus {
   margin: 0;
   padding: 0.6rem 1rem;
   border-radius: 12px;
-  background: linear-gradient(135deg, rgba(230, 230, 230, 0.9), rgba(240, 240, 240, 0.95));
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  background: rgba(240, 240, 240, 0.98);
   color: var(--primary-900);
   box-shadow: 0 10px 25px rgba(20, 54, 66, 0.15);
   border: 1px solid rgba(20, 54, 66, 0.08);
-  will-change: transform, backdrop-filter;
 }
 
 .hold-ribbon.is-expired {

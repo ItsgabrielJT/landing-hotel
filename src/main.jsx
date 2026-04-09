@@ -21,12 +21,16 @@ function SmoothScroller({ children }) {
       touchMultiplier: 2,
     })
 
-    lenis.on('scroll', ScrollTrigger.update)
+    // Sincronizacion directa sin lag extra
+    lenis.on('scroll', () => {
+      ScrollTrigger.update()
+    })
 
     gsap.ticker.add((time) => {
       lenis.raf(time * 1000)
     })
     
+    // Evitar acumulacion de lags en gsap ticker por renders
     gsap.ticker.lagSmoothing(0)
 
     return () => {

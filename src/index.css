@@ -54,12 +54,11 @@ html.lenis, html.lenis body {
 body {
   margin: 0;
   min-width: 320px;
-  position: relative;
 }
 
 body::before {
   content: '';
-  position: absolute;
+  position: fixed;
   inset: 0;
   z-index: -1;
   pointer-events: none;
@@ -67,8 +66,9 @@ body::before {
     linear-gradient(90deg, rgba(20, 54, 66, 0.03) 1px, transparent 1px),
     linear-gradient(rgba(20, 54, 66, 0.03) 1px, transparent 1px);
   background-size: 72px 72px;
-  mask-image: radial-gradient(circle at center, black 35%, transparent 82%);
-  -webkit-mask-image: radial-gradient(circle at center, black 35%, transparent 82%);
+  mask-image: radial-gradient(circle at center, black 65%, transparent 100%);
+  -webkit-mask-image: radial-gradient(circle at center, black 65%, transparent 100%);
+  transform: translate3d(0,0,0);
 }
 
 a,
