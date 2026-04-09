@@ -319,7 +319,7 @@ function App() {
         </nav>
         <div className="header-actions" style={{ display: 'flex', gap: '0.75rem' }}>
           <a className="ribbon-button-alt" href="#arquitectura" style={{ textDecoration: 'none', display: 'inline-flex', alignItems: 'center' }}>Ver Stack</a>
-          <a className="button button-primary" href="#demo" onClick={resetHoldDemo}>Iniciar Demo</a>
+          <a className="button button-primary" target='_blank' href="http://localhost:5173/" onClick={resetHoldDemo}>Iniciar Demo</a>
         </div>
       </header>
 
