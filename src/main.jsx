@@ -1,9 +1,12 @@
 import { StrictMode, useEffect } from 'react'
 import { createRoot } from 'react-dom/client'
 import gsap from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import Lenis from '@studio-freight/lenis'
 import './index.css'
 import App from './App.jsx'
+
+gsap.registerPlugin(ScrollTrigger)
 
 function SmoothScroller({ children }) {
   useEffect(() => {
@@ -18,7 +21,7 @@ function SmoothScroller({ children }) {
       touchMultiplier: 2,
     })
 
-    lenis.on('scroll', ScrollTrigger.update) // if ScrollTrigger is used later
+    lenis.on('scroll', ScrollTrigger.update)
 
     gsap.ticker.add((time) => {
       lenis.raf(time * 1000)
@@ -34,9 +37,6 @@ function SmoothScroller({ children }) {
 
   return children
 }
-
-// Temporary patch to quiet missing ScrollTrigger if not installed/registered
-const ScrollTrigger = { update: () => {} };
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>

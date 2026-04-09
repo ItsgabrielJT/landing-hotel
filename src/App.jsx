@@ -1,5 +1,9 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useRef } from 'react'
+import gsap from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import './App.css'
+
+gsap.registerPlugin(ScrollTrigger)
 
 const initialHoldSeconds = 10 * 60
 const rooms = [
@@ -239,8 +243,66 @@ function App() {
     })
   }
 
+  const appRef = useRef(null)
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      // 1. ANIMACION INICIAL (Page Load)
+      const tl = gsap.timeline({ defaults: { ease: 'power3.out' } })
+      
+      tl.from('.site-header', { y: -80, opacity: 0, duration: 1 })
+        .from('.hero-copy', { x: -60, opacity: 0, duration: 1 }, "-=0.6")
+        .from('.hero-stage', { x: 60, opacity: 0, duration: 1 }, "-=0.9")
+
+      // 2. ANIMACION EN SCROLL PARA CADA SECCION
+      const sections = gsap.utils.toArray('.section')
+      sections.forEach((sec) => {
+        gsap.fromTo(sec, 
+          { opacity: 0, y: 80 }, 
+          { 
+            y: 0, 
+            opacity: 1, 
+            duration: 1.2,
+            ease: 'power3.out',
+            scrollTrigger: {
+              trigger: sec,
+              start: 'top 85%', // Empieza la animacion cuando el div entra al 85% de altura
+              toggleActions: 'play none none none' // Solo anima a la ida (hacia abajo)
+            }
+          }
+        )
+      })
+
+      // 3. ANIMACIONES EN CASCADA (stagger) para los pasos y cards
+      gsap.from('.benefit-card', {
+        y: 40,
+        opacity: 0,
+        stagger: 0.15,
+        ease: 'back.out(1.5)',
+        scrollTrigger: {
+          trigger: '.benefit-grid',
+          start: 'top 85%',
+        }
+      })
+
+      gsap.from('.timeline-step', {
+        y: 30,
+        opacity: 0,
+        stagger: 0.15,
+        ease: 'power2.out',
+        scrollTrigger: {
+          trigger: '.timeline',
+          start: 'top 85%',
+        }
+      })
+      
+    }, appRef)
+
+    return () => ctx.revert() // Limpieza super robusta al desmontar componente
+  }, [])
+
   return (
-    <main className="page-shell">
+    <main className="page-shell" ref={appRef}>
       
       
       <header className="site-header">
@@ -669,7 +731,7 @@ function App() {
         <p style={{ maxWidth: '650px', margin: '0 auto 1.5rem auto', fontSize: '1.2rem', color: 'rgba(255,255,255,0.65)', lineHeight: '1.6' }}>
           Prueba de primera mano cómo funciona nuestro motor de reservas: bloquea inventario, experimenta la velocidad de nuestra arquitectura y descubre cómo eliminamos el overbooking definitivamente.
         </p>
-        <a className="button button-primary" href="#demo" onClick={resetHoldDemo} style={{ fontSize: '1.1rem', padding: '1rem 3rem', borderRadius: '999px', background: 'linear-gradient(90deg, #c96b3b, #d98458)', border: 'none', color: '#143642', fontWeight: 'bold', boxShadow: '0 12px 36px rgba(201, 107, 59, 0.4)' }}>
+        <a className="button button-primary"  target="_blank" href="http://localhost:5173/" onClick={resetHoldDemo} style={{ fontSize: '1.1rem', padding: '1rem 3rem', borderRadius: '999px', background: 'linear-gradient(90deg, #c96b3b, #d98458)', border: 'none', color: '#143642', fontWeight: 'bold', boxShadow: '0 12px 36px rgba(201, 107, 59, 0.4)' }}>
           Probar Demo del Motor
         </a>
       </section>
