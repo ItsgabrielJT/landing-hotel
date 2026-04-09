@@ -369,7 +369,59 @@ function App() {
           start: 'top 85%',
         }
       })
-      
+
+      // 4. ANIMACIONES SECCION PROBLEMA
+      gsap.from('.problem-card', {
+        y: 50,
+        opacity: 0,
+        scale: 0.96,
+        stagger: { each: 0.08, from: 'start' },
+        ease: 'power3.out',
+        duration: 0.7,
+        scrollTrigger: {
+          trigger: '.problem-grid',
+          start: 'top 85%',
+        }
+      })
+
+      gsap.from('.impact-bar-item', {
+        y: 24,
+        opacity: 0,
+        stagger: 0.12,
+        ease: 'power2.out',
+        duration: 0.6,
+        scrollTrigger: {
+          trigger: '.impact-bar',
+          start: 'top 88%',
+        }
+      })
+
+      // 5. ANIMACIONES SECCION SOLUCION
+      gsap.from('.gain-card', {
+        y: 40,
+        opacity: 0,
+        scale: 0.95,
+        stagger: 0.1,
+        ease: 'back.out(1.4)',
+        duration: 0.7,
+        scrollTrigger: {
+          trigger: '.solution-gains-grid',
+          start: 'top 85%',
+        }
+      })
+
+      gsap.from('.solution-pillar', {
+        x: -30,
+        opacity: 0,
+        stagger: 0.14,
+        ease: 'power3.out',
+        duration: 0.7,
+        scrollTrigger: {
+          trigger: '.solution-pillars',
+          start: 'top 86%',
+        }
+      })
+
     }, appRef)
 
     return () => ctx.revert() // Limpieza super robusta al desmontar componente
@@ -428,7 +480,6 @@ function App() {
                 <span className="pill pill-success">Disponibilidad en tiempo real</span>
                 <h2>Buscador de habitaciones </h2>
               </div>
-              <span className="mini-kpi">&lt; 500 ms</span>
             </div>
 
             <div className="form-grid">
