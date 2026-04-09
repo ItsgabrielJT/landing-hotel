@@ -2,35 +2,6 @@ import { useEffect, useState } from 'react'
 import './App.css'
 
 const initialHoldSeconds = 10 * 60
-
-function createRoomArt(title, accent) {
-  const svg = `
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 520" role="img" aria-label="${title}">
-      <defs>
-        <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stop-color="#143642" />
-          <stop offset="100%" stop-color="#0d1f27" />
-        </linearGradient>
-        <linearGradient id="glass" x1="0%" y1="0%" x2="100%" y2="0%">
-          <stop offset="0%" stop-color="rgba(255,255,255,0.12)" />
-          <stop offset="100%" stop-color="rgba(255,255,255,0.02)" />
-        </linearGradient>
-      </defs>
-      <rect width="800" height="520" fill="url(#bg)" rx="40" />
-      <circle cx="650" cy="110" r="120" fill="${accent}" opacity="0.35" />
-      <circle cx="130" cy="420" r="160" fill="#F6F0E8" opacity="0.08" />
-      <rect x="66" y="96" width="668" height="328" rx="34" fill="url(#glass)" stroke="rgba(255,255,255,0.08)" />
-      <rect x="118" y="226" width="330" height="96" rx="22" fill="rgba(246,240,232,0.18)" />
-      <rect x="142" y="184" width="148" height="42" rx="14" fill="${accent}" opacity="0.95" />
-      <rect x="486" y="170" width="154" height="154" rx="24" fill="rgba(246,240,232,0.18)" />
-      <path d="M510 296c38-54 78-90 120-108 14-6 30 6 28 22-7 52-47 106-118 160-14 11-35 1-35-17v-57c0-4 2-8 5-12Z" fill="#F6F0E8" opacity="0.88" />
-      <text x="118" y="150" fill="#F6F0E8" font-family="Avenir Next, Helvetica Neue, Arial, sans-serif" font-size="44" font-weight="700">${title}</text>
-      <text x="118" y="364" fill="#F6F0E8" font-family="Avenir Next, Helvetica Neue, Arial, sans-serif" font-size="24" opacity="0.76">Inventario protegido · Checkout con hold visible</text>
-    </svg>`
-
-  return `data:image/svg+xml;charset=UTF-8,${encodeURIComponent(svg)}`
-}
-
 const rooms = [
   {
     id: 'oceano',
@@ -41,7 +12,7 @@ const rooms = [
     type: 'Suite premium',
     capacity: '2 huespedes',
     occupancy: 92,
-    image: createRoomArt('Suite Oceano 402', '#2E6F68'),
+    image: 'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
   },
   {
     id: 'skyline',
@@ -52,7 +23,7 @@ const rooms = [
     type: 'Loft ejecutivo',
     capacity: '3 huespedes',
     occupancy: 81,
-    image: createRoomArt('Loft Skyline 1207', '#C96B3B'),
+    image: 'https://images.unsplash.com/photo-1536259041358-97f495574577?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
   },
   {
     id: 'alpina',
@@ -63,7 +34,7 @@ const rooms = [
     type: 'Vista montana',
     capacity: '2 huespedes',
     occupancy: 74,
-    image: createRoomArt('Habitacion Alpina 18', '#7AA6A1'),
+    image: 'https://images.unsplash.com/photo-1542314831-c6a4d14eff89?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
   },
 ]
 
@@ -273,16 +244,20 @@ function App() {
       
       
       <header className="site-header">
-        <div className="header-logo">LUXE RESERVATIONS</div>
+        <div className="header-logo">
+          <span style={{ display: 'block', lineHeight: '1.2' }}>Hotel Booking</span>
+          <span style={{ fontSize: '0.65rem', display: 'block', color: 'var(--accent)', textTransform: 'uppercase', letterSpacing: '0.08em', fontWeight: '800' }}>Investment Preview</span>
+        </div>
         <nav className="header-nav">
-          <a href="#solucion">Solución</a>
-          <a href="#demo">Buscador</a>
-          <a href="#checkout">Checkout</a>
-          <a href="#dashboard">Dashboard</a>
-          <a href="#arquitectura">Arquitectura</a>
+          <a href="#solucion">Propuesta de Valor</a>
+          <a href="#demo">Motor Interactivo</a>
+          <a href="#checkout">Checkout Garantizado</a>
+          <a href="#dashboard">Operativa B2B</a>
+          <a href="#arquitectura">Moat Tecnológico</a>
         </nav>
-        <div className="header-actions">
-          <a className="button button-primary" href="#demo">Probar Demo</a>
+        <div className="header-actions" style={{ display: 'flex', gap: '0.75rem' }}>
+          <a className="ribbon-button-alt" href="#arquitectura" style={{ textDecoration: 'none', display: 'inline-flex', alignItems: 'center' }}>Ver Stack</a>
+          <a className="button button-primary" href="#demo" onClick={resetHoldDemo}>Iniciar Demo</a>
         </div>
       </header>
 
@@ -415,7 +390,7 @@ function App() {
 
       <section className="section section-dark">
         <div className="section-heading section-heading-compact">
-          <span className="eyebrow">Flujo del viajero</span>
+          <span className="eyebrow eyebrow-outline" style={{ display: "inline-block", padding: "0.4rem 1.2rem", borderRadius: "999px", border: "1px solid rgba(255,255,255,0.2)", marginBottom: "1.5rem" }}>FLUJO DEL VIAJERO</span>
           <h2>Una experiencia pensada para conversion, no solo para mostrar pantallas</h2>
         </div>
         <div className="timeline">
@@ -687,19 +662,18 @@ function App() {
         </div>
       </section>
 
-      <section className="section cta-section">
-        <div>
-          <span className="eyebrow">Siguiente paso</span>
-          <h2>Listo para presentar el MVP a negocio, producto o direccion</h2>
-          <p>
-            Esta landing resume el problema, la solucion, la experiencia y la robustez operativa del
-            motor de reservas en un lenguaje mas vendible y mas visual.
-          </p>
-        </div>
-        <a className="button button-primary" href="#top" onClick={resetHoldDemo}>
-          Reiniciar experiencia
+      
+      <section className="section section-dark cta-section" style={{ padding: '6rem 2rem', borderRadius: '32px', textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '1.5rem', background: 'linear-gradient(135deg, rgba(37,81,96,0.9), rgba(20,54,66,0.95))', margin: '0 auto', maxWidth: '1100px' }}>
+        <span className="eyebrow eyebrow-outline" style={{ display: 'inline-block', padding: '0.4rem 1.2rem', borderRadius: '999px', border: '1px solid rgba(255,255,255,0.2)', margin: '0 auto', textTransform: 'uppercase', letterSpacing: '0.1em', fontSize: '0.75rem' }}>SIGUIENTE PASO</span>
+        <h2 style={{ fontSize: '3rem', maxWidth: '800px', margin: '0 auto', color: '#fff', fontWeight: 'bold' }}>Explora el MVP Interactivo</h2>
+        <p style={{ maxWidth: '650px', margin: '0 auto 1.5rem auto', fontSize: '1.2rem', color: 'rgba(255,255,255,0.65)', lineHeight: '1.6' }}>
+          Prueba de primera mano cómo funciona nuestro motor de reservas: bloquea inventario, experimenta la velocidad de nuestra arquitectura y descubre cómo eliminamos el overbooking definitivamente.
+        </p>
+        <a className="button button-primary" href="#demo" onClick={resetHoldDemo} style={{ fontSize: '1.1rem', padding: '1rem 3rem', borderRadius: '999px', background: 'linear-gradient(90deg, #c96b3b, #d98458)', border: 'none', color: '#143642', fontWeight: 'bold', boxShadow: '0 12px 36px rgba(201, 107, 59, 0.4)' }}>
+          Probar Demo del Motor
         </a>
       </section>
+
 
       <footer className="site-footer">
         <strong>Travel: Motor de Reservas de Hotel</strong>

@@ -138,10 +138,7 @@
 .metric-grid,
 .palette-grid,
 .architecture-grid,
-.cta-section {
-  display: flex;
-  flex-wrap: wrap;
-}
+
 
 .eyebrow,
 .pill,
@@ -284,7 +281,6 @@
 .palette-card,
 .faq-item,
 .architecture-grid article,
-.cta-section,
 .site-footer,
 .checkout-demo-card,
 .checkout-summary-card {
@@ -419,7 +415,6 @@ input:focus {
 .palette-card span,
 .faq-item p,
 .site-footer p,
-.timeline-step p,
 .benefit-card p,
 .table-row span,
 .checkout-summary-copy span,
@@ -599,21 +594,23 @@ input:focus {
 }
 
 .timeline-step {
-  gap: 1rem;
-  border-top: 1px solid rgba(246, 240, 232, 0.18);
-  padding-top: 1rem;
+  gap: 1.25rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  padding-top: 1.5rem;
+  margin-top: 0.5rem;
 }
 
 .timeline-step span {
-  width: 2.4rem;
-  height: 2.4rem;
+  width: 2.2rem;
+  height: 2.2rem;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   border-radius: 50%;
-  background: rgba(201, 107, 59, 0.16);
+  background: rgba(255, 255, 255, 0.1);
   color: var(--paper);
   font-weight: 700;
+  font-size: 0.95rem;
 }
 
 .product-demo-section {
@@ -897,16 +894,7 @@ input:focus {
   margin-top: 1rem;
 }
 
-.cta-section {
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-  border-radius: 28px;
-  background:
-    linear-gradient(120deg, rgba(20, 54, 66, 0.96), rgba(20, 54, 66, 0.82)),
-    radial-gradient(circle at top left, rgba(201, 107, 59, 0.22), transparent 35%);
-  color: var(--paper);
-}
+
 
 .site-footer {
   display: flex;
@@ -1006,3 +994,37 @@ input:focus {
 .hold-ribbon-copy strong { font-size: 1.05rem; margin-bottom: 0; } 
 .hold-ribbon-copy small { font-size: 0.8rem; } 
 .ribbon-button, .ribbon-button-alt { min-height: 2.25rem; font-size: 0.85rem; padding: 0 0.85rem; border-radius: 8px; }
+
+
+.site-footer {
+  width: 100% !important;
+  max-width: none !important;
+  margin: 0 -1.5rem;
+  border-radius: 0;
+  border-bottom: 0;
+  border-left: 0;
+  border-right: 0;
+  background: var(--primary-900);
+  color: var(--paper);
+  padding: 4rem 2rem;
+}
+.page-shell {
+  padding-bottom: 0;
+  overflow-x: hidden;
+}
+@media (max-width: 1200px) {
+  .site-footer {
+    margin: 0 -1.5rem;
+  }
+}
+@media (max-width: 820px) {
+  .page-shell {
+    padding-bottom: 0;
+  }
+  .site-footer {
+    margin: 0 -1rem;
+    border-radius: 0 !important;
+  }
+}
+
+.timeline-step p { color: rgba(255,255,255,0.6); font-size: 0.95rem; line-height: 1.6; }
