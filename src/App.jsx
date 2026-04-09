@@ -271,17 +271,21 @@ function App() {
   return (
     <main className="page-shell">
       
+      
       <header className="site-header">
-        <div className="header-logo">LuxeLock</div>
+        <div className="header-logo">LUXE RESERVATIONS</div>
         <nav className="header-nav">
-          <a href="#solucion" className="is-active">Solución</a>
-          <a href="#tecnologia">Tecnología</a>
-          <a href="#hoja-de-ruta">Hoja de Ruta</a>
+          <a href="#solucion">Solución</a>
+          <a href="#demo">Buscador</a>
+          <a href="#checkout">Checkout</a>
+          <a href="#dashboard">Dashboard</a>
+          <a href="#arquitectura">Arquitectura</a>
         </nav>
         <div className="header-actions">
-          <a className="button button-primary" href="#contacto">Contacto</a>
+          <a className="button button-primary" href="#demo">Probar Demo</a>
         </div>
       </header>
+
 
       <section className="hero-section" id="solucion">
 
@@ -424,7 +428,7 @@ function App() {
         </div>
       </section>
 
-      <section className="section product-demo-section">
+      <section className="section product-demo-section" id="checkout">
         <div className="section-heading section-heading-inline">
           <div>
             <span className="eyebrow">Checkout demo</span>
@@ -490,7 +494,7 @@ function App() {
         </div>
       </section>
 
-      <section className="section admin-section">
+      <section className="section admin-section" id="dashboard">
         <div className="section-heading section-heading-inline">
           <div>
             <span className="eyebrow">Dashboard demo</span>
