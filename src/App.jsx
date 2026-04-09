@@ -313,9 +313,9 @@ function App() {
             <div className="card-heading">
               <div>
                 <span className="pill pill-success">Disponibilidad en tiempo real</span>
-                <h2>Buscador de habitaciones premium</h2>
+                <h2>Buscador de habitaciones </h2>
               </div>
-              <span className="mini-kpi">p95 hold &lt; 500 ms</span>
+              <span className="mini-kpi">&lt; 500 ms</span>
             </div>
 
             <div className="form-grid">
